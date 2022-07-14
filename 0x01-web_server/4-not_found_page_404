@@ -11,7 +11,7 @@ sudo apt-get -y install nginx
 echo "Hello World" | sudo tee /var/www/html/index.html
 # applying 301 redirection to /redirect_me
 searchingfor="^\tlocation / {"
-replacewith="\tlocation /redirect_me {\n\t\treturn 301 \$scheme://youtube.com/watch?v=QH2-TGUlwu4;\n\n\tlocation / {"
+replacewith="\tlocation /redirect_me {\n\t\treturn 301 \$scheme://youtube.com/watch?v=QH2-TGUlwu4;}\n\n\tlocation / {"
 sudo sed -i "s@$searchingfor@$replacewith@" /etc/nginx/sites-available/default
 # configure server with a custom 404 page & create the page
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/error404.html
