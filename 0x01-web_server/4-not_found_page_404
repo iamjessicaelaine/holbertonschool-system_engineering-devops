@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# scripts to install and configure nginx webserver
+
+# fetches the latest version of package list from my distro's software repo
+sudo apt-get -y update
+# download and install updates for each outdated package and dependency
+sudo apt-get -y upgrade
+# install nginx
+sudo apt-get -y install nginx
+# edit the homepage/the default page for site
+echo "Hello World" | sudo tee /var/www/html/index.html
+# applying 301 redirection to /redirect_me
+searchingfor="^\tlocation / {"
+replacewith="\tlocation = /redirect_me {\n\t\treturn 301 \$scheme://youtube.com/watch?v=QH2-TGUlwu4;\n\n\tlocation / {"
+sudo sed -i "s/$searchingfor/$replacewith/" /etc/nginx/sites-available/default
+# configure server with a custom 404 page & create the page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/error404.html
+404replace="\terror_page 404 /error404.html;\n\n\tlocation / {"
+sudo sed -i "s@$searchingfor@404replace@" /etc/nginx/sites-available/default
+# must restart nginx after any updates to the configuration
+sudo service nginx restart
