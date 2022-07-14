@@ -14,7 +14,7 @@ searchingfor="^\tlocation / {"
 replacewith="\tlocation /redirect_me {\n\t\treturn 301 \$scheme://youtube.com/watch?v=QH2-TGUlwu4;\n\n\tlocation / {"
 sudo sed -i "s@$searchingfor@$replacewith@" /etc/nginx/sites-available/default
 # configure server with a custom 404 page & create the page
-echo "Ceci n'est pas une page\n" | sudo tee /var/www/html/error404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/error404.html
 replace="\terror_page 404 /error404.html;\n\n\tlocation / {"
 sudo sed -i "s@$searchingfor@$replace@" /etc/nginx/sites-available/default
 # must restart nginx after any updates to the configuration
