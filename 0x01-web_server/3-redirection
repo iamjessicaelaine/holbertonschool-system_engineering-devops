@@ -12,6 +12,6 @@ echo "Hello World" | sudo tee /var/www/html/index.html
 # applying 301 redirection to /redirect_me
 searchingfor="^\tlocation / {"
 replacewith="\tlocation = /redirect_me {\n\t\treturn 301 \$scheme://https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\n\tlocation / {"
-sudo sed -i "s.$searchingfor.$replacewith." /etc/nginx/sites-available/default
+sudo sed -i 's/$searchingfor/$replacewith/' /etc/nginx/sites-available/default
 # must restart nginx after any updates to the configuration
 sudo service nginx restart
