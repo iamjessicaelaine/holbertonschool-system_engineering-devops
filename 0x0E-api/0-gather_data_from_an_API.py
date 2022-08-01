@@ -9,7 +9,7 @@ api_url_base = 'https://jsonplaceholder.typicode.com'
 
 if __name__ == '__main__':
     # if type(argv[1]) == int:  # check to make sure parameter is an int
-    employee_id = argv[1]
+    employee_id = int(argv[1])
     # gettig cotent from response obj received from user id url
     employee_data = requests.get('{}/users/{}'.format(api_url_base,
                                                       employee_id)).json()
