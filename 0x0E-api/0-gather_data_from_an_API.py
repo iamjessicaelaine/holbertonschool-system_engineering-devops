@@ -2,9 +2,8 @@
 """for a given employee ID, returns info about emp.'s todo list progress"""
 
 # Standard library imports
-import requests
 from sys import argv
-
+import requests
 
 api_url_base = 'https://jsonplaceholder.typicode.com'
 
