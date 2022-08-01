@@ -23,8 +23,8 @@ if __name__ == '__main__':
     totaltasks = len(todolist)  # get total number of tasks
     completedlist = []  # need an empty list hold done tasks for printing
     for taskdict in todolist:  # iterate through each task for needed info
-        tasktitle = taskdict['title']
-        if taskdict['completed'] is True:  # if task is done...
+        tasktitle = taskdict.get('title')
+        if taskdict.get('completed') is True:  # if task is done...
             completedlist.append(tasktitle)  # ...add it to completed list
         else:
             continue
