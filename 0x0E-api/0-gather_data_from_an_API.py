@@ -35,4 +35,3 @@ if __name__ == '__main__':
     if totaltasksdone > 0:
         for donetask in completedlist:
             print('\t {}'.format(donetask))
-
