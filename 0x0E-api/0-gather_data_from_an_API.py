@@ -2,6 +2,7 @@
 """for a given employee ID, returns info about emp.'s todo progress"""
 
 # Standard library imports
+import json
 import requests
 from sys import argv
 
