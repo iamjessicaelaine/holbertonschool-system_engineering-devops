@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""for a given employee ID, returns info about emp.'s todo list progress"""
+"""for a given employee ID, returns info about emp.'s todo progress"""
 
 # Standard library imports
-from sys import argv
 import requests
+from sys import argv
 
 
 if __name__ == '__main__':
